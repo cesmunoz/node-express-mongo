@@ -1,22 +1,21 @@
-var express = require('express');
-var moongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const express = require('express');
+const moongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 // Models
-var book = require('./models/bookModel');
+const book = require('./models/bookModel');
 
 // Database
-var db = moongoose.connect('mongodb://localhost/bookAPI');
+const db = moongoose.connect('mongodb://localhost/bookAPI');
 
 // Express
-var app = express();
-var port = process.env.PORT || 8000;
+const app = express();
+const port = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
-
 
 // API Books
 router = require('./routes/bookRoutes')(book);

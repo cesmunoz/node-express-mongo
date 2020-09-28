@@ -1,11 +1,11 @@
-var express = require('express');
+const express = require('express');
 
-var routes = function (book) {
-    var router = express.Router();
+const routes = (book) => {
+    const router = express.Router();
 
     router.route('/books')
         .get(function (req, res) {
-            var query = {};
+            let query = {};
 
             if (req.query.genre) {
                 query.genre = req.query.genre;
@@ -20,7 +20,7 @@ var routes = function (book) {
             });
         })
         .post(function (req, res) {
-            var model = new book(req.body);
+            const model = new book(req.body);
             model.save();
             res.status(201).send(model);
         });
